@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  margin-top: 20px;
+}
+.productListContainer {
+  width: 70%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.poductContainer {
+  height: 25vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #f1e3fd;
+  border-radius: 5px;
+  border: 1px solid #deb9fd;
+  overflow: hidden;
+}
+.productImgContainer {
+  width: 18%;
+  height: 100%;
+}
+.productImg {
+  width: 100%;
+  height: 100%;
+}
+.btnContainer {
+  border: 1px solid #8c00ff;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: inherit;
+  align-items: center;
+  margin-right: 10px;
+  width: 100px;
+  height: 30px;
+}
+.btnContainer span {
+  color: #8c00ff;
+  font-size: 20px;
+}
+.cahangeBtn {
+  width: 36%;
+  height: 100%;
+  background-color: #9b29f8;
+  border: none;
+  color: white;
+  font-size: 20px;
+}

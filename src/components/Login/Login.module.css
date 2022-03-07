@@ -1,0 +1,27 @@
+.container {
+  background-color: white;
+  border: 1px solid #975cca;
+  border-radius: 10px;
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  height: 60vh;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+}
+.loginBtn {
+  width: 100%;
+  margin-top: 30px;
+  height: 35px;
+  background-color: #7e22ce;
+  border: 1px solid #7e22ce;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+}
+.error {
+  color: red;
+}
