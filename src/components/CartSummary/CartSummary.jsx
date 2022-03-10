@@ -11,7 +11,7 @@ const CartSummary = ({ total }) => {
       <p>Total price : {total} $ </p>
       <button className={styles.btn}>
         <NavLink to={Auth ? "/checkout" : "/login?redirect=checkout"}>
-          Continue order
+          Continue orderr
         </NavLink>
       </button>
     </div>

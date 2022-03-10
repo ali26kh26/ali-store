@@ -1,4 +1,3 @@
-import { data } from "../../data";
 import { useCart, useCartActions } from "../../Providers/CartProvider";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,7 +19,6 @@ const HomePage = () => {
       .then(({ data }) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(products);
   if (!products) return <p>loading</p>;
   return (
     <main className="productListContainer">

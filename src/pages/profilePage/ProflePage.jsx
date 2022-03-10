@@ -1,15 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import {
   useAuth,
   useAuthActions,
 } from "../../Providers/AuthProvider/AuthProvider";
-import { withRouter } from "react-router-dom";
 const ProfilePage = ({ history }) => {
+  const navigate = useNavigate();
   const userData = useAuth();
   const setAuth = useAuthActions();
   const logOutHandler = () => {
     localStorage.clear();
     setAuth(null);
-    history.push("/");
+    navigate("/");
   };
   return (
     <>
@@ -21,4 +22,4 @@ const ProfilePage = ({ history }) => {
   );
 };
 
-export default withRouter(ProfilePage);
+export default ProfilePage;

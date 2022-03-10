@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { NavLink, Redirect, withRouter } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Input from "../../common/Input/Input";
 import { useQuery } from "../../hooks/useQuery";
@@ -19,7 +19,8 @@ const validationSchema = yup.object({
   password: yup.string().required("password required"),
 });
 
-const Login = ({ history }) => {
+const Login = () => {
+  const navigate = useNavigate();
   const setAuth = useAuthActions();
   const [error, setError] = useState(null);
   const query = useQuery().get("redirect") || "/";
@@ -29,7 +30,7 @@ const Login = ({ history }) => {
         setAuth(data);
         localStorage.setItem("authState", JSON.stringify(data));
         setError(null);
-        history.push(query);
+        navigate(query);
       })
       .catch((err) => {
         if (err.response) setError(err.response.data.message);
@@ -63,4 +64,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(Login);
+export default Login;
