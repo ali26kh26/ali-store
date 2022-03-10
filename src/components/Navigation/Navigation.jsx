@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useCart } from "../../Providers/CartProvider";
 import "./Navigation.css";
 import { useAuth } from "../../Providers/AuthProvider/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 const Navigation = () => {
   const Auth = useAuth();
   const { cart } = useCart();
@@ -14,13 +14,19 @@ const Navigation = () => {
     <nav className="mainNavigation">
       <ul>
         <li>
-          <NavLink activeClassName="activeLink" to="/" exact>
+          <NavLink
+            className={({ isActive }) => (isActive ? "activeLink" : "")}
+            to="/"
+          >
             Home
           </NavLink>
         </li>
         <li>
           <div>
-            <NavLink activeClassName="activeLink" to="/cart">
+            <NavLink
+              className={({ isActive }) => (isActive ? "activeLink" : "")}
+              to="/cart"
+            >
               <div className="cartLogo">
                 <p>
                   <FaShoppingCart />
@@ -33,7 +39,7 @@ const Navigation = () => {
           </div>
           <div>
             <NavLink
-              activeClassName="activeLink"
+              className={({ isActive }) => (isActive ? "activeLink" : "")}
               to={Auth ? `profile` : `/login`}
             >
               {Auth ? <p>{Auth.name}</p> : <p>Log in/sign up</p>}

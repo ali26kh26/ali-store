@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Input from "../../common/Input/Input";
 import singupInputOptions from "../../options/singupInputOptions";
@@ -30,7 +30,8 @@ const validationSchema = yup.object({
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
-const Signup = ({ history }) => {
+const Signup = () => {
+  const navigate = useNavigate();
   const setAuth = useAuthActions();
   const [error, setError] = useState(null);
   const onSubmit = (values) => {
@@ -45,7 +46,7 @@ const Signup = ({ history }) => {
       .then(({ data }) => {
         setAuth(data);
         localStorage.setItem("authState", JSON.stringify(data));
-        history.push("/");
+        navigate("/");
       })
       .catch((err) => {
         if (err.response) setError(err.response.data.message);
@@ -79,4 +80,4 @@ const Signup = ({ history }) => {
   );
 };
 
-export default withRouter(Signup);
+export default Signup;
