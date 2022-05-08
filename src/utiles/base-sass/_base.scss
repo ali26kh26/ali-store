@@ -1,0 +1,41 @@
+$color-primary: #581c87;
+$color-secondary: #d8b4fe;
+$color-tertiary: #efe4fc;
+$color-bg: #f6f6f6;
+$color-grey: rgb(168, 168, 168);
+$color-white: #fff;
+
+@mixin whenDark {
+  html.dark & {
+    @content;
+  }
+}
+
+body {
+  --color-primary: #581c87;
+  --color-secondary: #d8b4fe;
+  --color-tertiary: #efe4fc;
+  --color-bg: #f6f6f6;
+  --color-grey: rgb(168, 168, 168);
+  --color-white: #fff;
+  --color-font: #000000;
+  --color-font-secondary: #581c87;
+
+  @include whenDark {
+    --color-primary: #04aa6d;
+    --color-secondary: #1d2a35;
+    --color-tertiary: #1d2a35;
+    --color-bg: #0d1721;
+    --color-grey: #01442c;
+    --color-white: #fff;
+    --color-font: #fff;
+    --color-font-secondary: #04aa6d;
+  }
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("../fonts/Ubuntu-Medium.ttf");
+}
+
+$font-primary: "Ubuntu";

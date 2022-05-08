@@ -1,0 +1,27 @@
+@use "../../utiles/base-sass/base";
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.scrollToTop {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 50%;
+  // background-color: darken($color: var(--color-secondary), $amount: 15%);
+  color: var(--color-white);
+}
+.icon:hover {
+  background-color: var(--color-primary);
+}

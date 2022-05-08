@@ -11,23 +11,28 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import AuthProvider from "./Providers/AuthProvider/AuthProvider";
 import ProfilePage from "./pages/profilePage/ProflePage";
+import ProductProvider from "./Providers/productsProvider/ProductProvider";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
         <CartProvider>
-          <Layout>
-            <ToastContainer />
-            <Routes>
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/signup" element={<SignUpPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/checkout" element={<CheckOut />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/" element={<HomePage />} />
-            </Routes>
-          </Layout>
+          <ProductProvider>
+            <Layout>
+              <ScrollToTop />
+              <ToastContainer />
+              <Routes>
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/checkout" element={<CheckOut />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+            </Layout>
+          </ProductProvider>
         </CartProvider>
       </AuthProvider>
     </Router>

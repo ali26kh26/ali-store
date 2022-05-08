@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 
 export const products = [
-
   {
     name: "Winter body",
     description: [
@@ -9,22 +8,21 @@ export const products = [
       { support: "ارسال رایگان" },
       { support: "اورجینال" },
     ],
+    size: [{ a: "M" }, { a: "L" }],
     price: 120,
     offPrice: 120,
     discount: 0,
     image: "https://s4.uupload.ir/files/item1_soj.jpg",
-  }, 
+  },
   {
     name: "Adidas",
-    description: [
-      { support: "گارانتی مادام العمر" },
-      { support: "اورجینال" },
-    ],
+    description: [{ support: "گارانتی مادام العمر" }, { support: "اورجینال" }],
+    size: ["S", "M"],
     price: 110,
     offPrice: 100,
     discount: 8,
-   image:"https://s4.uupload.ir/files/item2_fc5s.jpg"
-  },  
+    image: "https://s4.uupload.ir/files/item2_fc5s.jpg",
+  },
   {
     name: "Vans",
     description: [
@@ -32,11 +30,12 @@ export const products = [
       { support: "اورجینال" },
       { support: "ارسال رایگان" },
     ],
+    size: ["S", "M", "L"],
     price: 99,
     offPrice: 89,
     discount: 10,
-   image:"https://s4.uupload.ir/files/item3_zvc9.jpg"
-  },  
+    image: "https://s4.uupload.ir/files/item3_zvc9.jpg",
+  },
   {
     name: "White",
     description: [
@@ -44,10 +43,11 @@ export const products = [
       { support: "اورجینال" },
       { support: "ارسال رایگان" },
     ],
+    size: ["L", "XL"],
     price: 260,
     offPrice: 220,
     discount: 15,
-   image:"https://s4.uupload.ir/files/item4_zr94.jpg"
+    image: "https://s4.uupload.ir/files/item4_zr94.jpg",
   },
   {
     name: "Croopped-shoe",
@@ -56,11 +56,12 @@ export const products = [
       { support: "اورجینال" },
       { support: "ارسال رایگان" },
     ],
+    size: ["S"],
     price: 150,
     offPrice: 150,
     discount: 0,
-   image:"https://s4.uupload.ir/files/item5_24ye.jpg"
-  },  
+    image: "https://s4.uupload.ir/files/item5_24ye.jpg",
+  },
   {
     name: "Blues",
     description: [
@@ -68,14 +69,13 @@ export const products = [
       { support: "اورجینال" },
       { support: "ارسال رایگان" },
     ],
+    size: ["S", "L"],
     price: 220,
-    offPrice:200,
-    discount:13,
-   image:"https://s4.uupload.ir/files/item6_7jfy.jpg"
-  }
+    offPrice: 200,
+    discount: 13,
+    image: "https://s4.uupload.ir/files/item6_7jfy.jpg",
+  },
 ];
-
-
 
 export const users = [
   {

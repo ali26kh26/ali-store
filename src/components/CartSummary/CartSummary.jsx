@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Providers/AuthProvider/AuthProvider";
-import styles from "./CartSummary.module.css";
+import styles from "./CartSummary.module.scss";
 
 const CartSummary = ({ total }) => {
   const Auth = useAuth();

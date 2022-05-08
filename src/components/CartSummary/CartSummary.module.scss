@@ -1,16 +1,17 @@
+@use "../../utiles/base-sass/base";
 .container {
   width: 25%;
   margin: 0 auto;
-  background-color: white;
-  border: 1px solid #d8b4fe;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-secondary);
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.container hr {
-  width: 90%;
-  margin: 10px 0;
+  hr {
+    width: 90%;
+    margin: 10px 0;
+  }
 }
 .btn {
   margin-top: 20px;
@@ -18,9 +19,9 @@
   width: 90%;
   height: 40px;
   border: none;
-  background-color: #a21caf;
+  background-color: var(--color-primary);
   border-radius: 5px;
-}
-.btn a {
-  color: white;
+  a {
+    color: var(--color-white);
+  }
 }

@@ -7,7 +7,7 @@ import { useQuery } from "../../hooks/useQuery";
 import loginInputOptions from "../../options/loginInputOptions";
 import { useAuthActions } from "../../Providers/AuthProvider/AuthProvider";
 import { loginUser } from "../../services/loginUser";
-import styles from "./Login.module.css";
+import styles from "./Login.module.scss";
 
 const initialValues = {
   email: "",

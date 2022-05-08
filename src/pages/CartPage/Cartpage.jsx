@@ -1,11 +1,12 @@
 import { useCart, useCartActions } from "../../Providers/CartProvider";
-import styles from "./CartPage.module.css";
+import styles from "./CartPage.module.scss";
 import { BsFillTrashFill } from "react-icons/bs";
 import CartSummary from "../../components/CartSummary/CartSummary";
+import EmptyCart from "../../components/emptyCart/EmptyCart";
 const CartPage = () => {
   const { cart, total } = useCart();
   const dispatch = useCartActions();
-  if (!cart.length) return <h2>Cart is empty</h2>;
+  if (!cart.length) return <EmptyCart />;
   return (
     <>
       <div className={styles.container}>
@@ -19,11 +20,9 @@ const CartPage = () => {
                   alt={p.description}
                 />
               </div>
-              <div className="productDescribtion">
-                <p>{p.title}</p>
-              </div>
-              <div>
-                price (per item:{p.price}): $ {p.quantity * p.price}
+              <div className={styles.productPrice}>
+                price (per item:{p.price}):
+                <span> {p.quantity * p.price}$</span>
               </div>
               <div className={styles.btnContainer}>
                 <button

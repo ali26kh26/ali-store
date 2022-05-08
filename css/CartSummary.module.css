@@ -1,0 +1,38 @@
+@use "../../utiles/base-sass/base";
+.container {
+  width: 25%;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-secondary);
+  border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container hr {
+  width: 90%;
+  margin: 10px 0;
+}
+
+.btn {
+  margin-top: 20px;
+  font-size: 15px;
+  width: 90%;
+  height: 40px;
+  border: none;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+
+.btn a {
+  color: var(--color-white);
+}
+/*# sourceMappingURL=CartSummary.module.css.map */

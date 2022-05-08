@@ -1,0 +1,10 @@
+@use "../../utiles/base-sass/base";
+.container {
+  width: 100%;
+  height: 70px;
+  padding: 3px 20px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  margin-top: 40px;
+}

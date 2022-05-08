@@ -3,7 +3,13 @@ import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/getProducts";
+import FilterBar from "../../components/filterBar/FilterBar";
+import { useProducts } from "../../Providers/productsProvider/ProductProvider";
+import styles from "./homePage.module.scss";
+import Footer from "../../components/footer/Footer";
 const HomePage = () => {
+  const filteredProduct = useProducts();
+  console.log(filteredProduct);
   const [products, setProducts] = useState(null);
   const { cart } = useCart();
   const dispatch = useCartActions();
@@ -19,33 +25,48 @@ const HomePage = () => {
       .then(({ data }) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);
+  const renderOption = () => {
+    if (filteredProduct) return filteredProduct;
+    else return products;
+  };
   if (!products) return <p>loading</p>;
   return (
-    <main className="productListContainer">
-      {products.map((p) => (
-        <section key={p._id} className="poductContainer">
-          <div>
-            <img className="productImg" src={p.image} alt={p.description} />
-          </div>
-          <div className="productDescribtion">
-            <p>{p.name}</p>
-            <p>$ {p.price}</p>
-          </div>
+    <>
+      <main className={styles.productListContainer}>
+        <FilterBar />
+        {renderOption().map((p) => (
+          <section key={p._id} className={styles.poductContainer}>
+            <div>
+              <img
+                className={styles.productImg}
+                src={p.image}
+                alt={p.description}
+              />
+            </div>
+            <div className={styles.productDescribtion}>
+              <p>{p.name}</p>
+              <p>$ {p.price}</p>
+            </div>
 
-          {cart.findIndex((c) => c._id === p._id) >= 0 ? (
-            <button className="btn">
-              <NavLink to="/cart" className="linkToCart">
-                go to cart
-              </NavLink>
-            </button>
-          ) : (
-            <button onClick={() => addProductHanler(p)} className="btn">
-              Add to cart
-            </button>
-          )}
-        </section>
-      ))}
-    </main>
+            {cart.findIndex((c) => c._id === p._id) >= 0 ? (
+              <button className={styles.btn}>
+                <NavLink to="/cart" className={styles.linkToCart}>
+                  go to cart
+                </NavLink>
+              </button>
+            ) : (
+              <button
+                onClick={() => addProductHanler(p)}
+                className={styles.btn}
+              >
+                Add to cart
+              </button>
+            )}
+          </section>
+        ))}
+      </main>
+      <Footer />
+    </>
   );
 };
 

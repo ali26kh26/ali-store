@@ -1,0 +1,144 @@
+@use "../../utiles/base-sass/base";
+body {
+  --color-primary: #581c87;
+  --color-secondary: #d8b4fe;
+  --color-tertiary: #efe4fc;
+  --color-bg: #f6f6f6;
+  --color-grey: rgb(168, 168, 168);
+  --color-white: #fff;
+  --color-font: #000000;
+  --color-font-secondary: #581c87;
+}
+
+html.dark body {
+  --color-primary: #04aa6d;
+  --color-secondary: #1d2a35;
+  --color-tertiary: #1d2a35;
+  --color-bg: #0d1721;
+  --color-grey: #01442c;
+  --color-white: #fff;
+  --color-font: #fff;
+  --color-font-secondary: #04aa6d;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("../fonts/Ubuntu-Medium.ttf");
+}
+
+.mainNavigation {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--color-tertiary);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainNavigation ul {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.mainNavigation ul li {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainNavigation ul li div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainNavigation ul li a {
+  height: 100%;
+  font-size: 18px;
+  line-height: 3rem;
+  color: var(--color-font-secondary);
+  display: block;
+  padding: 0 0.5rem;
+}
+
+.mainNavigation ul li a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+.activeLink {
+  border-bottom: 3px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+.navRightSide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navRightSide div {
+  height: 100%;
+}
+
+.cartBadge {
+  position: absolute;
+  top: 5px;
+  font-size: 12px;
+  left: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  color: var(--color-white);
+}
+
+.cartLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  font-size: 20px;
+}
+
+.cartLogo P {
+  margin-right: 5px;
+  position: relative;
+}
+/*# sourceMappingURL=Navigation.module.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,QAAQ,EAAE,QAAQ;CACnB;;AACD,AAAA,aAAa,CAAC;EACZ,QAAQ,EAAE,QAAQ;CACnB",
+    "sources": [
+        "../src/components/profileNav/profileNav.module.scss"
+    ],
+    "names": [],
+    "file": "profileNav.module.css"
+}

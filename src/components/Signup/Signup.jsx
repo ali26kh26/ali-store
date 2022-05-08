@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Input from "../../common/Input/Input";
 import singupInputOptions from "../../options/singupInputOptions";
-import styles from "./Signup.module.css";
+import styles from "./Signup.module.scss";
 import { signupUser } from "../../services/signupUser";
 import { useState } from "react";
 import { useAuthActions } from "../../Providers/AuthProvider/AuthProvider";

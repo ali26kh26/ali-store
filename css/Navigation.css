@@ -1,0 +1,80 @@
+.mainNavigation {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: #f3e8ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainNavigation ul {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.mainNavigation li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.mainNavigation a {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0 1rem;
+}
+
+.mainNavigation a:hover {
+  color: #581c87;
+  background-color: #fff;
+}
+
+.activeLink {
+  color: #581c87;
+  background-color: #fff;
+}
+
+.cartBadge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #643686;
+  color: #fff;
+  font-weight: bolder;
+  margin-left: 5px;
+}
+
+.cartLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=Navigation.css.map */

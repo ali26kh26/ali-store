@@ -1,0 +1,56 @@
+.container {
+  width: 50%;
+  height: 60vh;
+  margin: 60px auto;
+  padding: 15px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-tertiary);
+  border-radius: 8px;
+  position: relative;
+}
+
+.container button {
+  width: 100%;
+  margin-top: 40px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-white);
+  height: 30px;
+}
+
+.container ul li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--color-grey);
+  color: var(--color-font);
+}
+
+.container ul li span {
+  color: var(--color-primary);
+  margin-right: 5px;
+}
+
+.container ul li p {
+  color: var(--color-grey);
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.container ul li p span {
+  font-size: 25px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.container ul li p span:hover {
+  color: var(--color-grey);
+}
+/*# sourceMappingURL=profilePage.module.css.map */

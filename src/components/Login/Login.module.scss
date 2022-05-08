@@ -1,6 +1,8 @@
+@use "../../utiles/base-sass/base";
 .container {
-  background-color: white;
-  border: 1px solid #975cca;
+  background-color: var(--color-tertiary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-font);
   border-radius: 10px;
   padding: 10px;
   width: 50%;
@@ -16,10 +18,10 @@
   width: 100%;
   margin-top: 30px;
   height: 35px;
-  background-color: #7e22ce;
-  border: 1px solid #7e22ce;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 5px;
-  color: white;
+  color: var(--color-white);
   outline: none;
 }
 .error {
