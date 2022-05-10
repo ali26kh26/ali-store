@@ -82,6 +82,8 @@ html.dark body {
   color: var(--color-font-secondary);
   display: block;
   padding: 0 0.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .mainNavigation ul li a:hover {

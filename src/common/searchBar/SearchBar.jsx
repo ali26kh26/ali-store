@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { usePriceFilter } from "../../Providers/priceFilterProvider/PriceFilterProvider";
 import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
+import {
+  useSearchFilter,
+  useSearchFilterActions,
+} from "../../Providers/searchFilterProvider/SearchFilterProvider";
 import { getProducts } from "../../services/getProducts";
 import styles from "./searchBar.module.scss";
 
 const SearchBar = () => {
   const dispatch = useProductsActions();
-  const [searchValue, setSearchValue] = useState("");
+  const priceFilterValue = usePriceFilter();
+  const setSearchValue = useSearchFilterActions();
+  const SearchValue = useSearchFilter();
   const changeHandler = (e) => {
     setSearchValue(e.target.value);
     getProducts()
       .then(({ data }) => {
+        dispatch({
+          type: "PRICE",
+          payload: { value: priceFilterValue, data: data, isWith: true },
+        });
         dispatch({
           type: "SEARCH",
           payload: { value: e.target.value, data: data },
@@ -19,10 +30,11 @@ const SearchBar = () => {
   };
   return (
     <input
+      autoFocus
       className={styles.container}
       type="text"
       placeholder="Search ... "
-      value={searchValue}
+      value={SearchValue}
       onChange={(e) => changeHandler(e)}
     />
   );

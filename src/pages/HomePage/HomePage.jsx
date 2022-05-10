@@ -7,9 +7,9 @@ import FilterBar from "../../components/filterBar/FilterBar";
 import { useProducts } from "../../Providers/productsProvider/ProductProvider";
 import styles from "./homePage.module.scss";
 import Footer from "../../components/footer/Footer";
+import NotMatch from "../../components/notMatch/NotMatch";
 const HomePage = () => {
   const filteredProduct = useProducts();
-  console.log(filteredProduct);
   const [products, setProducts] = useState(null);
   const { cart } = useCart();
   const dispatch = useCartActions();
@@ -30,10 +30,12 @@ const HomePage = () => {
     else return products;
   };
   if (!products) return <p>loading</p>;
+  console.log(filteredProduct);
+
   return (
-    <>
+    <div className={styles.totalContainer}>
       <main className={styles.productListContainer}>
-        <FilterBar />
+        {filteredProduct && filteredProduct.length === 0 && <NotMatch />}
         {renderOption().map((p) => (
           <section key={p._id} className={styles.poductContainer}>
             <div>
@@ -65,8 +67,11 @@ const HomePage = () => {
           </section>
         ))}
       </main>
-      <Footer />
-    </>
+      <div className={styles.filterBar}>
+        <FilterBar />
+      </div>
+      {/* <Footer /> */}
+    </div>
   );
 };
 

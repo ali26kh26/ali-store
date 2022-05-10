@@ -1,11 +1,5 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
-import { getProducts } from "../../services/getProducts";
+import { createContext, useContext, useReducer } from "react";
+
 import productReducer from "./productReducer";
 
 const productsContext = createContext();
