@@ -1,7 +1,28 @@
 @use "../../utiles/base-sass/base";
-.productListContainer {
-  width: 90%;
+.totalContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 98%;
   margin: 0 auto;
+}
+
+.totalContainer body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.totalContainer body .filterBar {
+  width: 25%;
+}
+
+.totalContainer body .productListContainer {
+  width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,7 +33,7 @@
       flex-wrap: wrap;
 }
 
-.poductContainer {
+.totalContainer body .productListContainer .poductContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,23 +48,25 @@
   border: 1px solid var(--color-secondary);
   margin: 20px 20px;
   border-radius: 10px;
-  width: 320px;
-  height: 400px;
+  width: 280px;
+  height: 380px;
   overflow: hidden;
   font-size: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-.poductContainer:hover {
+.totalContainer body .productListContainer .poductContainer:hover {
   -webkit-box-shadow: 0 0 15px 8px var(--color-grey);
           box-shadow: 0 0 15px 8px var(--color-grey);
 }
 
-.productImg {
+.totalContainer body .productListContainer .poductContainer .productImg {
   width: 100%;
-  height: 300px;
+  height: 270px;
 }
 
-.productDescribtion {
+.totalContainer body .productListContainer .poductContainer .productDescribtion {
   color: var(--color-font);
   font-size: 20px;
   padding: 0 10px;
@@ -55,7 +78,7 @@
           justify-content: space-between;
 }
 
-.btn {
+.totalContainer body .productListContainer .poductContainer .btn {
   font-size: 17px;
   outline: none;
   border: none;
@@ -65,7 +88,7 @@
   letter-spacing: 1px;
 }
 
-.linkToCart {
+.totalContainer body .productListContainer .poductContainer .btn .linkToCart {
   color: var(--color-white);
 }
 /*# sourceMappingURL=homePage.module.css.map */

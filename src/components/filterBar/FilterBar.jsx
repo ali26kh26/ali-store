@@ -1,37 +1,36 @@
 import { useState } from "react";
 import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
-import { getProducts } from "../../services/getProducts";
 import RangeSlider from "../rangeSlider/RangeSlider";
 import styles from "./filterBar.module.scss";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import SearchBar from "../../common/searchBar/SearchBar";
 const FilterBar = () => {
-  const dispatch = useProductsActions();
+  const [priceShow, setPriceShow] = useState(false);
+  const [nameShow, setNameShow] = useState(false);
 
-  const [sizeValue, setSizeValue] = useState("");
-
-  const changeHandler = (e) => {
-    setSizeValue(e.target.value);
-    getProducts()
-      .then(({ data }) => {
-        dispatch({
-          type: "SIZE",
-          payload: { value: e.target.value, data: data },
-        });
-      })
-      .catch((err) => console.log(err));
+  const priceHandler = () => {
+    setPriceShow(!priceShow);
   };
+  const nameHandler = () => {
+    setNameShow(!nameShow);
+  };
+
   return (
     <div className={styles.container}>
-      {/* <div>
-        <label htmlFor="size">Size :</label>
-        <select name="size" id="size" onChange={changeHandler}>
-          <option value="">All</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-        </select>
-      </div> */}
-      <RangeSlider />
+      <div className={styles.PriceFliter}>
+        <div onClick={priceHandler}>
+          <p>Filter by price</p>
+          <p>{priceShow ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
+        </div>
+        <div>{priceShow && <RangeSlider />}</div>
+      </div>
+      <div className={styles.nameFliter}>
+        <div onClick={nameHandler}>
+          <p>Filter by name</p>
+          <p>{nameShow ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
+        </div>
+        <div>{nameShow && <SearchBar />}</div>
+      </div>
     </div>
   );
 };

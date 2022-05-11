@@ -7,9 +7,10 @@ import FilterBar from "../../components/filterBar/FilterBar";
 import { useProducts } from "../../Providers/productsProvider/ProductProvider";
 import styles from "./homePage.module.scss";
 import Footer from "../../components/footer/Footer";
+import NotMatch from "../../components/notMatch/NotMatch";
+import FilterTags from "../../components/filterTags/FilterTags";
 const HomePage = () => {
   const filteredProduct = useProducts();
-  console.log(filteredProduct);
   const [products, setProducts] = useState(null);
   const { cart } = useCart();
   const dispatch = useCartActions();
@@ -30,43 +31,53 @@ const HomePage = () => {
     else return products;
   };
   if (!products) return <p>loading</p>;
-  return (
-    <>
-      <main className={styles.productListContainer}>
-        <FilterBar />
-        {renderOption().map((p) => (
-          <section key={p._id} className={styles.poductContainer}>
-            <div>
-              <img
-                className={styles.productImg}
-                src={p.image}
-                alt={p.description}
-              />
-            </div>
-            <div className={styles.productDescribtion}>
-              <p>{p.name}</p>
-              <p>$ {p.price}</p>
-            </div>
+  console.log(filteredProduct);
 
-            {cart.findIndex((c) => c._id === p._id) >= 0 ? (
-              <button className={styles.btn}>
-                <NavLink to="/cart" className={styles.linkToCart}>
-                  go to cart
-                </NavLink>
-              </button>
-            ) : (
-              <button
-                onClick={() => addProductHanler(p)}
-                className={styles.btn}
-              >
-                Add to cart
-              </button>
-            )}
-          </section>
-        ))}
-      </main>
-      <Footer />
-    </>
+  return (
+    <main className={styles.totalContainer}>
+      <nav>
+        <FilterTags />
+      </nav>
+      <body>
+        <section className={styles.productListContainer}>
+          {filteredProduct && filteredProduct.length === 0 && <NotMatch />}
+          {renderOption().map((p) => (
+            <article key={p._id} className={styles.poductContainer}>
+              <div>
+                <img
+                  className={styles.productImg}
+                  src={p.image}
+                  alt={p.description}
+                />
+              </div>
+              <div className={styles.productDescribtion}>
+                <p>{p.name}</p>
+                <p>$ {p.price}</p>
+              </div>
+
+              {cart.findIndex((c) => c._id === p._id) >= 0 ? (
+                <button className={styles.btn}>
+                  <NavLink to="/cart" className={styles.linkToCart}>
+                    go to cart
+                  </NavLink>
+                </button>
+              ) : (
+                <button
+                  onClick={() => addProductHanler(p)}
+                  className={styles.btn}
+                >
+                  Add to cart
+                </button>
+              )}
+            </article>
+          ))}
+        </section>
+        <section className={styles.filterBar}>
+          <FilterBar />
+        </section>
+      </body>
+      {/* <Footer /> */}
+    </main>
   );
 };
 

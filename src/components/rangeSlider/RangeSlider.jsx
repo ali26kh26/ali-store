@@ -3,18 +3,35 @@ import styles from "./rangeSlider.module.scss";
 import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
 import { getProducts } from "../../services/getProducts";
 import { useState } from "react";
+import {
+  usePriceFilter,
+  usePriceFilterActions,
+} from "../../Providers/priceFilterProvider/PriceFilterProvider";
+import { useSearchFilter } from "../../Providers/searchFilterProvider/SearchFilterProvider";
+import { useSort } from "../../Providers/sortProvider/sortProvider";
 
 const RangeSlider = () => {
-  const [value, setValue] = useState([99, 260]);
   const dispatch = useProductsActions();
+  const setPriceValue = usePriceFilterActions();
+  const priceValue = usePriceFilter();
+  const searchValue = useSearchFilter();
+  const sortVslue = useSort();
 
   const rangeSelector = (event, newValue) => {
-    setValue(newValue);
+    setPriceValue(newValue);
     getProducts()
       .then(({ data }) => {
         dispatch({
+          type: "SEARCH",
+          payload: { value: searchValue, data: data, isWith: true },
+        });
+        dispatch({
           type: "PRICE",
-          payload: { value: value, data: data },
+          payload: { value: priceValue, data: data },
+        });
+        dispatch({
+          type: "SORT",
+          payload: { value: sortVslue, data: data },
         });
       })
       .catch((err) => console.log(err));
@@ -22,28 +39,20 @@ const RangeSlider = () => {
 
   return (
     <div className={styles.container}>
-      <ul>
-        <li>
-          <p>99$</p>
-        </li>
-        <li>
-          <div>
-            <Slider
-              value={value}
-              min={99}
-              max={260}
-              onChange={rangeSelector}
-              valueLabelDisplay="auto"
-              color="secondary"
-            />
-          </div>
-        </li>
-        <li>
-          <p>260$</p>
-        </li>
-      </ul>
+      <section>
+        <div>
+          <Slider
+            value={priceValue}
+            min={99}
+            max={260}
+            onChange={rangeSelector}
+            valueLabelDisplay="auto"
+            color="secondary"
+          />
+        </div>
+      </section>
       <div>
-        <span>{value[0]}</span> - <span>{value[1]}</span>
+        <span>{priceValue[0]}$</span> - <span>{priceValue[1]}$ </span>
       </div>
     </div>
   );

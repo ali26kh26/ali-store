@@ -1,0 +1,100 @@
+body {
+  --color-primary: #581c87;
+  --color-secondary: #d8b4fe;
+  --color-tertiary: #efe4fc;
+  --color-bg: #f6f6f6;
+  --color-grey: rgb(168, 168, 168);
+  --color-white: #fff;
+  --color-font: #000000;
+  --color-font-secondary: #581c87;
+}
+
+html.dark body {
+  --color-primary: #04aa6d;
+  --color-secondary: #1d2a35;
+  --color-tertiary: #1d2a35;
+  --color-bg: #0d1721;
+  --color-grey: #01442c;
+  --color-white: #fff;
+  --color-font: #fff;
+  --color-font-secondary: #04aa6d;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url("../fonts/Ubuntu-Medium.ttf");
+}
+
+.container {
+  width: 100%;
+  margin-top: 10vh;
+  min-height: 60px;
+  border-top: 2px solid var(--color-grey);
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container section:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container section:nth-child(1) article:nth-child(1) select {
+  font-family: "Ubuntu";
+  width: 100px;
+  height: 30px;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.container section:nth-child(1) article:nth-child(1) select option {
+  padding: 3px 5px;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.container section:nth-child(1) article:nth-child(2) {
+  color: var(--color-grey);
+}
+
+.container section:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container section:nth-child(2) article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #ffcccc;
+  border: 1px solid #ff4b4b;
+  color: red;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-left: 20px;
+  width: 130px;
+  height: 30px;
+}
+
+.container section:nth-child(2) article > span:nth-child(2) {
+  background-color: white;
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=filterTags.module.css.map */

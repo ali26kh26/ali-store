@@ -1,0 +1,58 @@
+@import "../../utiles/base-sass/base";
+.container {
+  width: 100%;
+  margin-top: 10vh;
+  min-height: 60px;
+  border-top: 2px solid var(--color-grey);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+
+  section:nth-child(1) {
+    display: flex;
+    align-items: center;
+    article:nth-child(1) {
+      select {
+        font-family: $font-primary;
+        border: 1px solid var(--color-grey);
+        font-size: 15px;
+        outline: none;
+        width: 100px;
+        height: 30px;
+        padding: 0 5px;
+        border-radius: 5px;
+        margin-right: 20px;
+        &:hover {
+          border: 2px solid var(--color-grey);
+        }
+      }
+    }
+    article:nth-child(2) {
+      color: var(--color-grey);
+    }
+  }
+  section:nth-child(2) {
+    display: flex;
+    article {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(255, 204, 204);
+      border: 1px solid rgb(255, 75, 75);
+      color: red;
+      border-radius: 5px;
+      padding: 5px 5px;
+      margin-left: 20px;
+      width: 130px;
+      height: 30px;
+
+      > span:nth-child(2) {
+        background-color: white;
+        text-align: center;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}

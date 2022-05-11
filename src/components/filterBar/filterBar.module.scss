@@ -1,10 +1,38 @@
 @use "../../utiles/base-sass/base";
+
 .container {
   width: 100%;
-  height: 70px;
-  padding: 3px 20px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-secondary);
   border-radius: 8px;
-  margin-top: 40px;
+  margin-top: 20px;
+
+  .PriceFliter {
+    background-color: var(--color-tertiary);
+    color: var(--color-font);
+    border: 2px solid var(--color-grey);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    div:nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 15px;
+    }
+  }
+  .nameFliter {
+    background-color: var(--color-tertiary);
+    color: var(--color-font);
+    border: 2px solid var(--color-grey);
+    border-radius: 8px;
+    text-align: center;
+
+    div:nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 15px;
+    }
+  }
 }

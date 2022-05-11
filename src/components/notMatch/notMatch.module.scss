@@ -1,0 +1,16 @@
+.container {
+  //   background-color: red;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: var(--color-grey);
+
+  div {
+    font-size: 200px;
+    color: rgb(255, 79, 79);
+  }
+}
