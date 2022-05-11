@@ -15,6 +15,7 @@ import ProductProvider from "./Providers/productsProvider/ProductProvider";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import PriceFilterProvider from "./Providers/priceFilterProvider/PriceFilterProvider";
 import SearchFilterProvider from "./Providers/searchFilterProvider/SearchFilterProvider";
+import SortProvider from "./Providers/sortProvider/sortProvider";
 
 function App() {
   return (
@@ -24,18 +25,20 @@ function App() {
           <ProductProvider>
             <PriceFilterProvider>
               <SearchFilterProvider>
-                <Layout>
-                  <ScrollToTop />
-                  <ToastContainer />
-                  <Routes>
-                    <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/signup" element={<SignUpPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/checkout" element={<CheckOut />} />
-                    <Route path="/cart" element={<CartPage />} />
-                    <Route path="/" element={<HomePage />} />
-                  </Routes>
-                </Layout>
+                <SortProvider>
+                  <Layout>
+                    <ScrollToTop />
+                    <ToastContainer />
+                    <Routes>
+                      <Route path="/profile" element={<ProfilePage />} />
+                      <Route path="/signup" element={<SignUpPage />} />
+                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/checkout" element={<CheckOut />} />
+                      <Route path="/cart" element={<CartPage />} />
+                      <Route path="/" element={<HomePage />} />
+                    </Routes>
+                  </Layout>
+                </SortProvider>
               </SearchFilterProvider>
             </PriceFilterProvider>
           </ProductProvider>

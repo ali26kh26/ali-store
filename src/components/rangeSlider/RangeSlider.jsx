@@ -8,12 +8,14 @@ import {
   usePriceFilterActions,
 } from "../../Providers/priceFilterProvider/PriceFilterProvider";
 import { useSearchFilter } from "../../Providers/searchFilterProvider/SearchFilterProvider";
+import { useSort } from "../../Providers/sortProvider/sortProvider";
 
 const RangeSlider = () => {
   const dispatch = useProductsActions();
   const setPriceValue = usePriceFilterActions();
   const priceValue = usePriceFilter();
   const searchValue = useSearchFilter();
+  const sortVslue = useSort();
 
   const rangeSelector = (event, newValue) => {
     setPriceValue(newValue);
@@ -26,6 +28,10 @@ const RangeSlider = () => {
         dispatch({
           type: "PRICE",
           payload: { value: priceValue, data: data },
+        });
+        dispatch({
+          type: "SORT",
+          payload: { value: sortVslue, data: data },
         });
       })
       .catch((err) => console.log(err));

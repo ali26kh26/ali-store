@@ -8,6 +8,7 @@ import { useProducts } from "../../Providers/productsProvider/ProductProvider";
 import styles from "./homePage.module.scss";
 import Footer from "../../components/footer/Footer";
 import NotMatch from "../../components/notMatch/NotMatch";
+import FilterTags from "../../components/filterTags/FilterTags";
 const HomePage = () => {
   const filteredProduct = useProducts();
   const [products, setProducts] = useState(null);
@@ -33,45 +34,50 @@ const HomePage = () => {
   console.log(filteredProduct);
 
   return (
-    <div className={styles.totalContainer}>
-      <main className={styles.productListContainer}>
-        {filteredProduct && filteredProduct.length === 0 && <NotMatch />}
-        {renderOption().map((p) => (
-          <section key={p._id} className={styles.poductContainer}>
-            <div>
-              <img
-                className={styles.productImg}
-                src={p.image}
-                alt={p.description}
-              />
-            </div>
-            <div className={styles.productDescribtion}>
-              <p>{p.name}</p>
-              <p>$ {p.price}</p>
-            </div>
+    <main className={styles.totalContainer}>
+      <nav>
+        <FilterTags />
+      </nav>
+      <body>
+        <section className={styles.productListContainer}>
+          {filteredProduct && filteredProduct.length === 0 && <NotMatch />}
+          {renderOption().map((p) => (
+            <article key={p._id} className={styles.poductContainer}>
+              <div>
+                <img
+                  className={styles.productImg}
+                  src={p.image}
+                  alt={p.description}
+                />
+              </div>
+              <div className={styles.productDescribtion}>
+                <p>{p.name}</p>
+                <p>$ {p.price}</p>
+              </div>
 
-            {cart.findIndex((c) => c._id === p._id) >= 0 ? (
-              <button className={styles.btn}>
-                <NavLink to="/cart" className={styles.linkToCart}>
-                  go to cart
-                </NavLink>
-              </button>
-            ) : (
-              <button
-                onClick={() => addProductHanler(p)}
-                className={styles.btn}
-              >
-                Add to cart
-              </button>
-            )}
-          </section>
-        ))}
-      </main>
-      <div className={styles.filterBar}>
-        <FilterBar />
-      </div>
+              {cart.findIndex((c) => c._id === p._id) >= 0 ? (
+                <button className={styles.btn}>
+                  <NavLink to="/cart" className={styles.linkToCart}>
+                    go to cart
+                  </NavLink>
+                </button>
+              ) : (
+                <button
+                  onClick={() => addProductHanler(p)}
+                  className={styles.btn}
+                >
+                  Add to cart
+                </button>
+              )}
+            </article>
+          ))}
+        </section>
+        <section className={styles.filterBar}>
+          <FilterBar />
+        </section>
+      </body>
       {/* <Footer /> */}
-    </div>
+    </main>
   );
 };
 

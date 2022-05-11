@@ -5,6 +5,7 @@ import {
   useSearchFilter,
   useSearchFilterActions,
 } from "../../Providers/searchFilterProvider/SearchFilterProvider";
+import { useSort } from "../../Providers/sortProvider/sortProvider";
 import { getProducts } from "../../services/getProducts";
 import styles from "./searchBar.module.scss";
 
@@ -13,6 +14,7 @@ const SearchBar = () => {
   const priceFilterValue = usePriceFilter();
   const setSearchValue = useSearchFilterActions();
   const SearchValue = useSearchFilter();
+  const sortVslue = useSort();
   const changeHandler = (e) => {
     setSearchValue(e.target.value);
     getProducts()
@@ -24,6 +26,10 @@ const SearchBar = () => {
         dispatch({
           type: "SEARCH",
           payload: { value: e.target.value, data: data },
+        });
+        dispatch({
+          type: "SORT",
+          payload: { value: sortVslue, data: data },
         });
       })
       .catch((err) => console.log(err));
