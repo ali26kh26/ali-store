@@ -1,0 +1,55 @@
+.popUp {
+  position: absolute;
+  z-index: 500;
+  top: 48px;
+  right: 0;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and(max-width:400px) {
+    width: 60vw;
+  }
+
+  ul {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    li {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-tertiary);
+      border-bottom: 1px solid var(--color-grey);
+      width: 100%;
+      height: 50px;
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  .cartBadge {
+    position: absolute;
+    top: 5px;
+    font-size: 12px;
+    left: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    color: var(--color-white);
+  }
+  .cartLogo {
+    display: flex;
+    position: relative;
+    font-size: 20px;
+
+    P {
+      margin-right: 5px;
+      position: relative;
+    }
+  }
+}

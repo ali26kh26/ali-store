@@ -91,13 +91,7 @@ html.dark body {
   background-color: var(--color-white);
 }
 
-.activeLink {
-  border-bottom: 3px solid var(--color-primary);
-  color: var(--color-primary);
-  background-color: var(--color-white);
-}
-
-.navRightSide {
+.mainNavigation ul .navRightSide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,8 +100,30 @@ html.dark body {
           align-items: center;
 }
 
-.navRightSide div {
+@media only screen and (max-width: 670px) {
+  .mainNavigation ul .navRightSide {
+    display: none;
+  }
+}
+
+.mainNavigation ul .navRightSide div {
   height: 100%;
+}
+
+.mainNavigation ul li:nth-child(3) {
+  display: none;
+}
+
+@media only screen and (max-width: 670px) {
+  .mainNavigation ul li:nth-child(3) {
+    display: block;
+  }
+}
+
+.activeLink {
+  border-bottom: 3px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-white);
 }
 
 .cartBadge {

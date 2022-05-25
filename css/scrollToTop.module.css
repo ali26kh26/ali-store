@@ -31,9 +31,6 @@
   font-size: 25px;
   border-radius: 50%;
   color: var(--color-white);
-}
-
-.icon:hover {
   background-color: var(--color-primary);
 }
 /*# sourceMappingURL=scrollToTop.module.css.map */

@@ -19,9 +19,6 @@
   height: 50px;
   font-size: 25px;
   border-radius: 50%;
-  // background-color: darken($color: var(--color-secondary), $amount: 15%);
   color: var(--color-white);
-}
-.icon:hover {
   background-color: var(--color-primary);
 }

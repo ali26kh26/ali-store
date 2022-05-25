@@ -34,7 +34,7 @@ html.dark body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 500px;
+  width: 100%;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
