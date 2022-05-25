@@ -19,11 +19,13 @@ const validationSchema = yup.object({
   name: yup.string().required("Name required"),
   email: yup.string().email("Invalid email format").required("email required"),
   phoneNumber: yup.string().required("phone number required"),
-  password: yup.string().required("password required"),
-  // .matches(
-  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-  //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-  // ),
+  password: yup
+    .string()
+    .required("password required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    ),
   passwordConfirmation: yup
     .string()
     .required("password confirmation required")

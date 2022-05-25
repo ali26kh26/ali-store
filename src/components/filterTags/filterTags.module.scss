@@ -7,10 +7,12 @@
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   section:nth-child(1) {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
     article:nth-child(1) {
       select {
         font-family: $font-primary;

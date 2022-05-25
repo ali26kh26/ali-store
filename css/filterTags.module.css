@@ -37,6 +37,8 @@ html.dark body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .container section:nth-child(1) {
@@ -46,10 +48,14 @@ html.dark body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
 .container section:nth-child(1) article:nth-child(1) select {
   font-family: "Ubuntu";
+  border: 1px solid var(--color-grey);
+  font-size: 15px;
+  outline: none;
   width: 100px;
   height: 30px;
   padding: 0 5px;
@@ -57,9 +63,8 @@ html.dark body {
   margin-right: 20px;
 }
 
-.container section:nth-child(1) article:nth-child(1) select option {
-  padding: 3px 5px;
-  border-bottom: 1px solid var(--color-grey);
+.container section:nth-child(1) article:nth-child(1) select:hover {
+  border: 2px solid var(--color-grey);
 }
 
 .container section:nth-child(1) article:nth-child(2) {

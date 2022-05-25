@@ -1,0 +1,83 @@
+.popUp {
+  position: absolute;
+  z-index: 500;
+  top: 48px;
+  right: 0;
+  width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (max-width: 400px) {
+  .popUp {
+    width: 60vw;
+  }
+}
+
+.popUp ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.popUp ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--color-tertiary);
+  border-bottom: 1px solid var(--color-grey);
+  width: 100%;
+  height: 50px;
+}
+
+.popUp ul li a {
+  width: 100%;
+}
+
+.popUp .cartBadge {
+  position: absolute;
+  top: 5px;
+  font-size: 12px;
+  left: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  color: var(--color-white);
+}
+
+.popUp .cartLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  font-size: 20px;
+}
+
+.popUp .cartLogo P {
+  margin-right: 5px;
+  position: relative;
+}
+/*# sourceMappingURL=hamburgerMenu.module.css.map */

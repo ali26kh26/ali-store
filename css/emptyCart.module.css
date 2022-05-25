@@ -10,6 +10,18 @@
   margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 800px) {
+  .logo {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .logo {
+    height: 40vh;
+  }
+}
+
 .link {
   font-size: 25px;
 }

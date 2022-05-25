@@ -3,12 +3,12 @@ import { useAuth } from "../../Providers/AuthProvider/AuthProvider";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import SearchBar from "../../common/searchBar/SearchBar";
 import styles from "./Navigation.module.scss";
 import { AiFillHome } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import DarkModeButton from "../darkModeButton/DarkModeButton";
 import ProfileNav from "../profileNav/ProfileNav";
+import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
 const Navigation = () => {
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -51,9 +51,6 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li className={styles.navRightSide}>
-          {/* <div>
-            <SearchBar />
-          </div> */}
           <div>
             <DarkModeButton />
           </div>
@@ -74,18 +71,12 @@ const Navigation = () => {
             </NavLink>
           </div>
           <div>
-            {/* {Auth ? (
-              <ProfileNav />
-            ) : (
-              <NavLink to="/login">Log in/sign up</NavLink>
-            )} */}
             <NavLink
               className={({ isActive }) => (isActive ? styles.activeLink : "")}
               to={Auth ? `profile` : `/login`}
             >
               {Auth ? (
                 <p>
-                  {" "}
                   <FaUserAlt /> {Auth.name}
                 </p>
               ) : (
@@ -95,6 +86,9 @@ const Navigation = () => {
               )}
             </NavLink>
           </div>
+        </li>
+        <li>
+          <HamburgerMenu />
         </li>
       </ul>
     </nav>
