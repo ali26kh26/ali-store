@@ -1,4 +1,3 @@
-import { useCart, useCartActions } from "../../Providers/CartProvider";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
@@ -9,29 +8,33 @@ import styles from "./homePage.module.scss";
 import Footer from "../../components/footer/Footer";
 import NotMatch from "../../components/notMatch/NotMatch";
 import FilterTags from "../../components/filterTags/FilterTags";
+import { useDispatch, useSelector } from "react-redux";
+import { getAsyncproducts } from "../../features/products/productSlice";
+import { ADD_TO_CART } from "../../features/cart/cartSlice";
 const HomePage = () => {
   const filteredProduct = useProducts();
-  const [products, setProducts] = useState(null);
-  const { cart } = useCart();
-  const dispatch = useCartActions();
+  // const [products, setProducts] = useState(null);
+  const { cart } = useSelector((state) => state.cart);
+  const { products, loading, error } = useSelector((state) => state.products);
+
+  const reduxDispatch = useDispatch();
   const addProductHanler = (product) => {
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: product,
-    });
+    reduxDispatch(ADD_TO_CART({ product }));
     toast.success(`${product.name} Added to cart`);
   };
   useEffect(() => {
-    getProducts()
-      .then(({ data }) => setProducts(data))
-      .catch((err) => console.log(err));
+    if (!products.length) {
+      reduxDispatch(getAsyncproducts());
+    } else return;
+    // getProducts()
+    //   .then(({ data }) => setProducts(data))
+    //   .catch((err) => console.log(err));
   }, []);
   const renderOption = () => {
     if (filteredProduct) return filteredProduct;
     else return products;
   };
-  if (!products) return <p>loading</p>;
-  console.log(filteredProduct);
+  if (loading) return <p>loading</p>;
 
   return (
     <main className={styles.totalContainer}>

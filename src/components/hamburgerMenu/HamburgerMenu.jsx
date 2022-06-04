@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useAuth } from "../../Providers/AuthProvider/AuthProvider";
-import { useCart } from "../../Providers/CartProvider";
 import DarkModeButton from "../darkModeButton/DarkModeButton";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { BiLogIn } from "react-icons/bi";
 import styles from "./hamburgerMenu.module.scss";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 const HamburgerMenu = () => {
   const [isShow, setIsShow] = useState(false);
   const Auth = useAuth();
-  const { cart } = useCart();
+  const { cart } = useSelector((state) => state.cart);
   let totalQuantity = 0;
   cart.forEach((item) => {
     totalQuantity += item.quantity;
