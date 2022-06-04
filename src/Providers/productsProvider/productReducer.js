@@ -1,3 +1,5 @@
+/* eslint-disable default-case */
+
 const productReducer = (state, action) => {
   const { type, payload } = action;
 
@@ -30,7 +32,6 @@ const productReducer = (state, action) => {
       return filtered;
     }
     case "SORT": {
-      console.log("state : ", state);
       let filtered = [];
 
       if (state && state.length > 0) filtered = [...state];
@@ -81,6 +82,8 @@ const productReducer = (state, action) => {
           console.log(filtered);
           return filtered;
         }
+        default:
+          return state;
       }
     }
   }

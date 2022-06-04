@@ -1,11 +1,12 @@
-import { useCart, useCartActions } from "../../Providers/CartProvider";
 import styles from "./CartPage.module.scss";
 import { BsFillTrashFill } from "react-icons/bs";
 import CartSummary from "../../components/CartSummary/CartSummary";
 import EmptyCart from "../../components/emptyCart/EmptyCart";
+import { useDispatch, useSelector } from "react-redux";
+import { DECREAMENT, INCREAMENT } from "../../features/cart/cartSlice";
 const CartPage = () => {
-  const { cart, total } = useCart();
-  const dispatch = useCartActions();
+  const { cart, total } = useSelector((state) => state.cart);
+  const reduxDispatch = useDispatch();
   if (!cart.length) return <EmptyCart />;
   return (
     <>
@@ -27,14 +28,18 @@ const CartPage = () => {
               <div className={styles.btnContainer}>
                 <button
                   className={styles.cahangeBtn}
-                  onClick={() => dispatch({ type: "DECREAMENT", payload: p })}
+                  onClick={() => {
+                    reduxDispatch(DECREAMENT({ product: p }));
+                  }}
                 >
                   {p.quantity === 1 ? <BsFillTrashFill /> : "-"}
                 </button>
                 <span>{p.quantity}</span>
                 <button
                   className={styles.cahangeBtn}
-                  onClick={() => dispatch({ type: "INCREAMENT", payload: p })}
+                  onClick={() => {
+                    reduxDispatch(INCREAMENT({ product: p }));
+                  }}
                 >
                   +
                 </button>

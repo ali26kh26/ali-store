@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { usePriceFilter } from "../../Providers/priceFilterProvider/PriceFilterProvider";
 import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
 import {
@@ -10,6 +11,7 @@ import { getProducts } from "../../services/getProducts";
 import styles from "./searchBar.module.scss";
 
 const SearchBar = () => {
+  const { products } = useSelector((state) => state.products);
   const dispatch = useProductsActions();
   const priceFilterValue = usePriceFilter();
   const setSearchValue = useSearchFilterActions();
@@ -17,22 +19,22 @@ const SearchBar = () => {
   const sortVslue = useSort();
   const changeHandler = (e) => {
     setSearchValue(e.target.value);
-    getProducts()
-      .then(({ data }) => {
-        dispatch({
-          type: "PRICE",
-          payload: { value: priceFilterValue, data: data, isWith: true },
-        });
-        dispatch({
-          type: "SEARCH",
-          payload: { value: e.target.value, data: data },
-        });
-        dispatch({
-          type: "SORT",
-          payload: { value: sortVslue, data: data },
-        });
-      })
-      .catch((err) => console.log(err));
+    // getProducts()
+    //   .then(({ data }) => {
+    dispatch({
+      type: "PRICE",
+      payload: { value: priceFilterValue, data: products, isWith: true },
+    });
+    dispatch({
+      type: "SEARCH",
+      payload: { value: e.target.value, data: products },
+    });
+    dispatch({
+      type: "SORT",
+      payload: { value: sortVslue, data: products },
+    });
+    // })
+    // .catch((err) => console.log(err));
   };
   return (
     <input

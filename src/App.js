@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage.jsx";
-import CartProvider from "./Providers/CartProvider";
 import CartPage from "./pages/CartPage/Cartpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,12 +15,13 @@ import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import PriceFilterProvider from "./Providers/priceFilterProvider/PriceFilterProvider";
 import SearchFilterProvider from "./Providers/searchFilterProvider/SearchFilterProvider";
 import SortProvider from "./Providers/sortProvider/sortProvider";
-
+import { Provider } from "react-redux";
+import { store } from "./features/store";
 function App() {
   return (
     <Router>
-      <AuthProvider>
-        <CartProvider>
+      <Provider store={store}>
+        <AuthProvider>
           <ProductProvider>
             <PriceFilterProvider>
               <SearchFilterProvider>
@@ -42,8 +42,8 @@ function App() {
               </SearchFilterProvider>
             </PriceFilterProvider>
           </ProductProvider>
-        </CartProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </Provider>
     </Router>
   );
 }

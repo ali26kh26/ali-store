@@ -1,4 +1,3 @@
-import { useCart } from "../../Providers/CartProvider";
 import { useAuth } from "../../Providers/AuthProvider/AuthProvider";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
@@ -9,6 +8,7 @@ import { BiLogIn } from "react-icons/bi";
 import DarkModeButton from "../darkModeButton/DarkModeButton";
 import ProfileNav from "../profileNav/ProfileNav";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
+import { useSelector } from "react-redux";
 const Navigation = () => {
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -23,7 +23,7 @@ const Navigation = () => {
     }
   };
   const Auth = useAuth();
-  const { cart } = useCart();
+  const { cart } = useSelector((state) => state.cart);
   let totalQuantity = 0;
   cart.forEach((item) => {
     totalQuantity += item.quantity;

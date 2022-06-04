@@ -9,8 +9,10 @@ import {
 } from "../../Providers/priceFilterProvider/PriceFilterProvider";
 import { useSearchFilter } from "../../Providers/searchFilterProvider/SearchFilterProvider";
 import { useSort } from "../../Providers/sortProvider/sortProvider";
+import { useSelector } from "react-redux";
 
 const RangeSlider = () => {
+  const { products } = useSelector((state) => state.products);
   const dispatch = useProductsActions();
   const setPriceValue = usePriceFilterActions();
   const priceValue = usePriceFilter();
@@ -19,22 +21,22 @@ const RangeSlider = () => {
 
   const rangeSelector = (event, newValue) => {
     setPriceValue(newValue);
-    getProducts()
-      .then(({ data }) => {
-        dispatch({
-          type: "SEARCH",
-          payload: { value: searchValue, data: data, isWith: true },
-        });
-        dispatch({
-          type: "PRICE",
-          payload: { value: priceValue, data: data },
-        });
-        dispatch({
-          type: "SORT",
-          payload: { value: sortVslue, data: data },
-        });
-      })
-      .catch((err) => console.log(err));
+    // getProducts()
+    //   .then(({ data }) => {
+    dispatch({
+      type: "PRICE",
+      payload: { value: priceValue, data: products },
+    });
+    dispatch({
+      type: "SEARCH",
+      payload: { value: searchValue, data: products, isWith: true },
+    });
+    dispatch({
+      type: "SORT",
+      payload: { value: sortVslue, data: products },
+    });
+    // })
+    // .catch((err) => console.log(err));
   };
 
   return (
