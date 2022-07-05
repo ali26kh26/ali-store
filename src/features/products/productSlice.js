@@ -83,21 +83,6 @@ const productsSlice = createSlice({
     [getAsyncproducts.pending]: (state, action) => {
       return { ...state, products: [], loading: true, error: null };
     },
-    [addAsyncproducts.fulfilled]: (state, action) => {
-      state.products.push(action.payload);
-    },
-    [completeAsyncproducts.fulfilled]: (state, action) => {
-      const selectedTodo = state.products.find(
-        (item) => item.id === action.payload.id
-      );
-      selectedTodo.completed = action.payload.completed;
-    },
-    [deleteAsyncproducts.fulfilled]: (state, action) => {
-      const filteredTodo = state.products.filter(
-        (item) => item.id !== action.payload.id
-      );
-      state.products = filteredTodo;
-    },
   },
 });
 

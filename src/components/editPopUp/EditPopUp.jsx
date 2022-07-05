@@ -6,8 +6,6 @@ import styles from "./EditPopUp.module.scss";
 const EditPopUp = ({ data, closeHandler }) => {
   const [newData, setNewData] = useState("");
   const userData = useAuth();
-  console.log(data);
-  console.log(userData[data]);
   const changeHandler = (e) => {
     setNewData(e.target.value);
   };

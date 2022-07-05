@@ -1,83 +1,44 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  usePriceFilter,
-  usePriceFilterActions,
-} from "../../Providers/priceFilterProvider/PriceFilterProvider";
+  price,
+  search,
+  sort,
+} from "../../features/filteredProducts/filteredProductsSlice";
 import {
-  useProducts,
-  useProductsActions,
-} from "../../Providers/productsProvider/ProductProvider";
-import {
-  useSearchFilter,
-  useSearchFilterActions,
-} from "../../Providers/searchFilterProvider/SearchFilterProvider";
-import {
-  useSort,
-  useSortActions,
-} from "../../Providers/sortProvider/sortProvider";
-import { getProducts } from "../../services/getProducts";
+  setPrice,
+  setSearch,
+  setSort,
+} from "../../features/filterValues/filterValuesSlice";
 import styles from "./filterTags.module.scss";
 
 const FilterTags = () => {
   const { products } = useSelector((state) => state.products);
-  const pricevalue = usePriceFilter();
-  const searchValue = useSearchFilter();
-  const dispatch = useProductsActions();
-  const setSearchValue = useSearchFilterActions();
-  const setPriceValue = usePriceFilterActions();
-  const productss = useProducts();
-  const setSortValue = useSortActions();
-  const sortValue = useSort();
+  const filteredProducts = useSelector((state) => state.filteredProducts);
+  const searchValue = useSelector((state) => state.filterValues.searchValue);
+  const pricevalue = useSelector((state) => state.filterValues.priceValue);
+  const sortValue = useSelector((state) => state.filterValues.sortValue);
+  const dispatch = useDispatch();
+
   const closeHandler = (e) => {
-    // getProducts()
-    //   .then(({ data }) => {
     if (e === "search") {
-      setSearchValue("");
-      dispatch({
-        type: "PRICE",
-        payload: { value: pricevalue, data: products, isWith: true },
-      });
-      dispatch({
-        type: "SEARCH",
-        payload: { value: "", data: products },
-      });
-      dispatch({
-        type: "SORT",
-        payload: { value: sortValue, data: products },
-      });
+      dispatch(setSearch(""));
+      dispatch(price({ value: pricevalue, data: products, isWith: true }));
+      dispatch(search({ value: "", data: products }));
+      dispatch(sort({ value: sortValue, data: products }));
     } else {
-      setPriceValue([99, 260]);
-      dispatch({
-        type: "SEARCH",
-        payload: { value: searchValue, data: products, isWith: true },
-      });
-      dispatch({
-        type: "PRICE",
-        payload: { value: [99, 260], data: products },
-      });
-      dispatch({
-        type: "SORT",
-        payload: { value: sortValue, data: products },
-      });
+      dispatch(setPrice([99, 260]));
+      dispatch(search({ value: searchValue, data: products, isWith: true }));
+      dispatch(price({ value: [99, 260], data: products }));
+      dispatch(sort({ value: sortValue, data: products }));
     }
-    // })
-    // .catch((err) => console.log(err));
   };
   const shouldRender = () => {
     if (pricevalue[0] === 99 && pricevalue[1] === 260) return false;
     else return true;
   };
   const sortHandler = (e) => {
-    console.log(e.target.value);
-    setSortValue(e.target.value);
-    // getProducts()
-    //   .then(({ data }) => {
-    dispatch({
-      type: "SORT",
-      payload: { value: e.target.value, data: products },
-    });
-    // })
-    // .catch((err) => console.log(err));
+    dispatch(setSort(e.target.value));
+    dispatch(sort({ value: e.target.value, data: products }));
   };
   return (
     <main className={styles.container}>
@@ -91,7 +52,9 @@ const FilterTags = () => {
             <option value="ZA">Z-A</option>
           </select>
         </article>
-        {productss && <article>{productss.length} result(s) found</article>}
+        {filteredProducts && (
+          <article>{filteredProducts.length} result(s) found</article>
+        )}
       </section>
       <section>
         {searchValue !== "" && (

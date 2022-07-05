@@ -5,7 +5,7 @@
   flex-direction: column;
   width: 98%;
   margin: 0 auto;
-  body {
+  > div {
     display: flex;
     @media only screen and (max-width: 670px) {
       flex-direction: column;
@@ -70,9 +70,11 @@
           background-color: var(--color-primary);
           color: var(--color-white);
           letter-spacing: 1px;
+          cursor: pointer;
 
           .linkToCart {
             color: var(--color-white);
+            font-size: 25px;
           }
         }
       }

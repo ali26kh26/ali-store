@@ -23,7 +23,7 @@ const HamburgerMenu = () => {
     <div>
       <DarkModeButton />
       <div onClick={clickHandler}>
-        <AiOutlineMenu />{" "}
+        <AiOutlineMenu className={styles.menuIcon} />
       </div>
       {isShow && (
         <div className={styles.popUp}>
