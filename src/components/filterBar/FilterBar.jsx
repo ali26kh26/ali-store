@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
 import RangeSlider from "../rangeSlider/RangeSlider";
 import styles from "./filterBar.module.scss";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";

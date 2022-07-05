@@ -14,7 +14,6 @@ const cartSlice = createSlice({
     },
     DECREAMENT: (state, action) => {
       if (action.payload.product.quantity === 1) {
-        console.log("1");
         state.cart = state.cart.filter(
           (item) => item._id !== action.payload.product._id
         );

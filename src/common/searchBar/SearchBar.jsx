@@ -1,40 +1,24 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { usePriceFilter } from "../../Providers/priceFilterProvider/PriceFilterProvider";
-import { useProductsActions } from "../../Providers/productsProvider/ProductProvider";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  useSearchFilter,
-  useSearchFilterActions,
-} from "../../Providers/searchFilterProvider/SearchFilterProvider";
-import { useSort } from "../../Providers/sortProvider/sortProvider";
-import { getProducts } from "../../services/getProducts";
+  price,
+  search,
+  sort,
+} from "../../features/filteredProducts/filteredProductsSlice";
+import { setSearch } from "../../features/filterValues/filterValuesSlice";
 import styles from "./searchBar.module.scss";
 
 const SearchBar = () => {
   const { products } = useSelector((state) => state.products);
-  const dispatch = useProductsActions();
-  const priceFilterValue = usePriceFilter();
-  const setSearchValue = useSearchFilterActions();
-  const SearchValue = useSearchFilter();
-  const sortVslue = useSort();
+  const priceValue = useSelector((state) => state.filterValues.priceValue);
+  const SearchValue = useSelector((state) => state.filterValues.searchValue);
+  const sortValue = useSelector((state) => state.filterValues.sortValue);
+  const dispatch = useDispatch();
+
   const changeHandler = (e) => {
-    setSearchValue(e.target.value);
-    // getProducts()
-    //   .then(({ data }) => {
-    dispatch({
-      type: "PRICE",
-      payload: { value: priceFilterValue, data: products, isWith: true },
-    });
-    dispatch({
-      type: "SEARCH",
-      payload: { value: e.target.value, data: products },
-    });
-    dispatch({
-      type: "SORT",
-      payload: { value: sortVslue, data: products },
-    });
-    // })
-    // .catch((err) => console.log(err));
+    dispatch(setSearch(e.target.value));
+    dispatch(price({ value: priceValue, data: products, isWith: true }));
+    dispatch(search({ value: e.target.value, data: products }));
+    dispatch(sort({ value: sortValue, data: products }));
   };
   return (
     <input
